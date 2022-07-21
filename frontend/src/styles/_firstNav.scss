@@ -1,0 +1,26 @@
+@use "color-font-var" as v;
+@use "mixin" as mix;
+.FirstNavContainer {
+  background-color: v.$mainColorDarkBlue;
+  height: 60px;
+  .FirstNavUl {
+    @include mix.reset-list;
+    @include mix.display-flex(row, center, center);
+    height: 100%;
+
+    li a {
+      color: v.$fontLinksWhite;
+      padding: 10px;
+      margin: 5px;
+
+      &:first-of-type {
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+      }
+      &:hover {
+        background-color: v.$lightBlue;
+        border-radius: 10px;
+      }
+    }
+  }
+}
