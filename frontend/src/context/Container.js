@@ -8,8 +8,8 @@ function Container({ children }) {
   const [isUserLogin, setIsUserLogin] = useState(false);
 
   // const navigate = useNavigate();
+  // close dropdown when click on body using this function
 
-  //   useEffect(() => {
   //     fetch("http://localhost:5000/graphql", {
   //       method: "POST",
   //       headers: {
@@ -48,7 +48,7 @@ function Container({ children }) {
   //           navigate("/");
   //         }
   //       });
-  //   }, []);
+  // }, []);
 
   return (
     <MyContext.Provider

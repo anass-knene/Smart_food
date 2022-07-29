@@ -1,0 +1,54 @@
+@use "color-font-var" as v;
+@use "mixin" as mix;
+
+.secondNavContainer {
+  width: 100%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.589);
+
+  font-weight: bold;
+  .SecondNavUl {
+    margin: 0px auto;
+    @include mix.reset-list;
+    @include mix.display-flex(row, center, center);
+    li {
+      font-size: 1.2rem;
+      padding: 20px;
+      color: v.$lightBlue;
+
+      a {
+        text-decoration: none;
+        color: v.$lightBlue;
+      }
+    }
+  }
+  .subNav {
+    position: relative;
+    cursor: pointer;
+
+    #subNavWhy ul,
+    #subNavRes ul {
+      position: absolute;
+      margin-top: 20px;
+      border-top: 1px solid black;
+
+      @include mix.reset-list;
+      background-color: white;
+    }
+    #subNavWhy ul li,
+    #subNavRes ul li {
+      border-bottom: 1px solid black;
+      &:hover {
+        background-color: v.$lightBlue;
+        a {
+          color: v.$fontLinksWhite;
+        }
+      }
+    }
+    #subNavWhy ul li {
+      min-width: 350px;
+    }
+    #subNavRes ul li {
+      min-width: 150px;
+    }
+  }
+}
