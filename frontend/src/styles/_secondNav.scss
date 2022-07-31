@@ -4,7 +4,6 @@
 .secondNavContainer {
   width: 100%;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.589);
-
   font-weight: bold;
   .SecondNavUl {
     margin: 0px auto;
@@ -13,42 +12,67 @@
     li {
       font-size: 1.2rem;
       padding: 20px;
-      color: v.$lightBlue;
 
+      color: v.$lightBlue;
+      display: inline-block;
+      position: relative;
+      color: #0087ca;
       a {
         text-decoration: none;
         color: v.$lightBlue;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 10px;
+        bottom: 0;
+        left: 0px;
+        top: 45px;
+
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+        box-shadow: 0px 10px 10px #0087ca;
+      }
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      .active {
+        color: rgba(255, 0, 0, 0.802);
       }
     }
   }
   .subNav {
     position: relative;
     cursor: pointer;
-
     #subNavWhy ul,
     #subNavRes ul {
       position: absolute;
       margin-top: 20px;
       border-top: 1px solid black;
-
+      @include mix.display-flex(column, center, center);
       @include mix.reset-list;
       background-color: white;
     }
-    #subNavWhy ul li,
-    #subNavRes ul li {
+    #subNavWhy ul a {
+      width: 350px;
+    }
+    #subNavRes ul a {
+      width: 100px;
+    }
+    #subNavWhy ul a,
+    #subNavRes ul a {
       border-bottom: 1px solid black;
+      padding: 20px;
       &:hover {
         background-color: v.$lightBlue;
-        a {
-          color: v.$fontLinksWhite;
-        }
+        color: v.$fontLinksWhite;
       }
-    }
-    #subNavWhy ul li {
-      min-width: 350px;
-    }
-    #subNavRes ul li {
-      min-width: 150px;
     }
   }
 }
+
+// .SecondNavUl li a {

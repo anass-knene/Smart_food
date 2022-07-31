@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 function SecondNav() {
@@ -33,10 +33,12 @@ function SecondNav() {
     <div className="secondNavContainer">
       <ul className="SecondNavUl">
         <li>
-          <Link to="/">Smartwhip</Link>
+          <NavLink to="/">Smartwhip</NavLink>
         </li>
         <li>
-          <Link to="/shop">Shop</Link>
+          <NavLink activclassname="active" to="/shop">
+            Shop
+          </NavLink>
         </li>
         <li
           ref={whyRef}
@@ -47,17 +49,13 @@ function SecondNav() {
           className="subNav"
         >
           Why Smartwhip ?
-          <IoMdArrowDropdown />
+          {showNavWhy ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
           {showNavWhy && (
             <div id="subNavWhy">
-              <ul>
-                <li>
-                  <Link to="/discover">Discover the Smartwhip system</Link>
-                </li>
+              <ul className=" animate__animated animate__fadeIn ">
+                <Link to="/discover">Discover the Smartwhip system</Link>
 
-                <li>
-                  <Link to="/how-work">How it Work</Link>
-                </li>
+                <Link to="/how-work">How it Work</Link>
               </ul>
             </div>
           )}
@@ -71,27 +69,28 @@ function SecondNav() {
           className="subNav"
         >
           Resources
-          <IoMdArrowDropdown />
+          {showNavRes ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
           {showNavRes && (
             <div id="subNavRes">
-              <ul>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/faq">FAQ</Link>
-                </li>
+              <ul className="animate__animated animate__fadeIn">
+                <Link to="/about">About</Link>
+
+                <Link to="/faq">FAQ</Link>
               </ul>
             </div>
           )}
         </li>
 
         <li>
-          <Link to="/wholesale">wholesale</Link>
+          <NavLink activclassname="active" to="/wholesale">
+            wholesale
+          </NavLink>
         </li>
 
         <li>
-          <Link to="/contact">Contact</Link>
+          <NavLink activclassname="active" to="/contact">
+            Contact
+          </NavLink>
         </li>
       </ul>
     </div>

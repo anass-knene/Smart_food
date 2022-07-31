@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import SecondNav from "./components/secondNav/SecondNav";
 import Container from "./context/Container";
+import "animate.css";
 
 import "./styles/App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
