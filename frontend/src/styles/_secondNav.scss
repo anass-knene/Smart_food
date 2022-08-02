@@ -52,21 +52,29 @@
     #subNavRes ul {
       position: absolute;
       margin-top: 20px;
-      border-top: 1px solid black;
+
       @include mix.display-flex(column, center, center);
       @include mix.reset-list;
       background-color: white;
     }
-    #subNavWhy ul a {
-      width: 350px;
+    #subNavWhy ul {
+      text-align: start;
+      a {
+        width: 250px;
+      }
     }
-    #subNavRes ul a {
-      width: 100px;
+    #subNavRes ul {
+      text-align: center;
+      a {
+        width: 100px;
+      }
     }
     #subNavWhy ul a,
     #subNavRes ul a {
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.214);
       padding: 20px;
+      font-size: 0.8rem;
+
       &:hover {
         background-color: v.$lightBlue;
         color: v.$fontLinksWhite;
@@ -74,5 +82,8 @@
     }
   }
 }
-
-// .SecondNavUl li a {
+@media screen and (max-width: 831px) {
+  .secondNavContainer {
+    display: none;
+  }
+}

@@ -6,6 +6,8 @@ function Container({ children }) {
   const [user, setUser] = useState({});
 
   const [isUserLogin, setIsUserLogin] = useState(false);
+  const [showNavWhy, setShowNavWhy] = useState(false);
+  const [showNavRes, setShowNavRes] = useState(false);
 
   // const navigate = useNavigate();
   // close dropdown when click on body using this function
@@ -57,6 +59,10 @@ function Container({ children }) {
         setUser,
         isUserLogin,
         setIsUserLogin,
+        showNavWhy,
+        setShowNavWhy,
+        showNavRes,
+        setShowNavRes,
       }}
     >
       {children}
