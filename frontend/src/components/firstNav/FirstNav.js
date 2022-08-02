@@ -10,7 +10,7 @@ function FirstNav() {
           <Link to="/login">Login</Link>
         </li>
         <li>
-          <Link to="/signup">
+          <Link to="/profile">
             <FaRegUser />
           </Link>
         </li>

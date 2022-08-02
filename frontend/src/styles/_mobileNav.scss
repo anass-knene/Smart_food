@@ -1,0 +1,272 @@
+@use "color-font-var" as v;
+@use "mixin" as mix;
+/// Modal NavMobile Style
+.ModalNav a {
+  text-decoration: none;
+}
+//open burgerNavBar styles
+.ContainerMobileOpen {
+  background-color: v.$lightBlue;
+  padding: 35px 0;
+}
+/// Burger NavMobile styles
+.Open .Menu-Btn__Burger::after,
+.Open .Menu-Btn__Burger::before {
+  background: #000;
+}
+////// login and profile icon and basket styles in mobile size
+.MenuBtn_Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 20px;
+
+  .FirstNavUlMobile {
+    @include mix.reset-list;
+    @include mix.display-flex(row, center, center);
+    margin: 0 auto;
+    box-shadow: 10px 10px 10px rgba(0, 0, 255, 0.235);
+    padding: 5px;
+    li a {
+      color: v.$fontLinksWhite;
+      padding: 10px;
+      margin: 5px;
+      font-size: 0.8rem;
+
+      &:hover {
+        border-radius: 10px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+      }
+    }
+  }
+
+  .headerMobile {
+    color: #fff;
+    &:hover {
+      background-image: linear-gradient(
+        -225deg,
+        black 0%,
+        white 29%,
+        v.$buttonPriceColor 67%,
+        v.$lightBlue 100%
+      );
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textClip 2s linear infinite;
+      display: inline-block;
+      font-size: 190px;
+    }
+  }
+}
+
+.Menu-Btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.Menu-Btn__Burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Menu-Btn__Burger::before,
+.Menu-Btn__Burger::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 1px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+.Menu-Btn__Burger::before {
+  transform: translateY(-10px);
+}
+.Menu-Btn__Burger::after {
+  transform: translateY(5px);
+}
+
+.Menu-Btn.Open .Menu-Btn__Burger {
+  transform: translateX(10px);
+  background: transparent;
+  box-shadow: none;
+}
+.Menu-Btn.Open .Menu-Btn__Burger::before {
+  transform: rotate(45deg);
+  background: #fff;
+}
+.Menu-Btn.Open .Menu-Btn__Burger::after {
+  transform: rotate(-45deg);
+  background: #fff;
+}
+// header ModalNav Styles
+.ContainerMobile {
+  display: block;
+  background-color: v.$lightBlue;
+  width: 100%;
+  padding: 35px 0;
+}
+.ContainerMobile a:first-child {
+  text-align: center;
+}
+.ContainerMobile .MenuBtn_Container {
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 0px;
+    h1 {
+      margin-top: 0;
+    }
+  }
+  .headerLinkMobile:hover {
+    background-image: linear-gradient(
+      -225deg,
+      black 0%,
+      white 29%,
+      v.$buttonPriceColor 67%,
+      v.$lightBlue 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textClip 2s linear infinite;
+    display: inline-block;
+    font-size: 190px;
+  }
+}
+
+@keyframes textClip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+//// links NavMobile Styles
+.Nav-LinksMobile {
+  padding: 0;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-top: 1px solid black;
+  .Nav-LinksMobileDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    font-weight: 600;
+    a {
+      font-size: 2.5rem;
+      margin: 10px 0;
+      display: inline-block;
+      position: relative;
+      color: v.$lightBlue;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #0087ca;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+      }
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+    .active {
+      padding-bottom: 5px;
+      border-bottom: 1px solid v.$lightBlue;
+    }
+    //// subNavMobileLinks Styles
+    .subNavMobile {
+      color: v.$lightBlue;
+
+      font-size: 2.5rem;
+      margin: 10px 0;
+      width: 100%;
+
+      cursor: pointer;
+
+      #subNavWhyMobile,
+      #subNavResMobile {
+        ul {
+          padding: 0;
+
+          li {
+            margin: 20px 20px;
+            list-style-type: none;
+            border-bottom: solid 1px #000;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+            background-color: v.$lightBlue;
+            &:hover {
+              box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+                rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+            }
+            a {
+              color: #fff;
+              font-size: 1.8rem;
+              display: block;
+              padding: 5px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .Nav-LinksMobile .SignOutBtnMobile {
+//   background: rgb(224, 220, 220);
+//   padding: 10px;
+//   color: rgb(0, 0, 0);
+//   cursor: pointer;
+//   margin-bottom: 20px;
+//   border-radius: 10px;
+//   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.41);
+// }
+// .Nav-LinksMobile .SignOutBtnMobile:hover {
+//   background-color: rgb(0, 0, 0);
+//   color: rgb(255, 255, 255);
+//   box-shadow: none;
+// }
+
+@media screen and (min-width: 832px) {
+  .ContainerMobile {
+    display: none;
+  }
+}
+// media query for icons and login buttons in small devices before open the modal when  click on burgerNavBar
+@media screen and (max-width: 432px) {
+  .ContainerMobile .MenuBtn_Container {
+    position: relative;
+    .FirstNavUlMobile {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+    }
+  }
+}

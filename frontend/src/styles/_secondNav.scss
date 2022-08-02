@@ -1,0 +1,89 @@
+@use "color-font-var" as v;
+@use "mixin" as mix;
+
+.secondNavContainer {
+  width: 100%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.589);
+  font-weight: bold;
+  .SecondNavUl {
+    margin: 0px auto;
+    @include mix.reset-list;
+    @include mix.display-flex(row, center, center);
+    li {
+      font-size: 1.2rem;
+      padding: 20px;
+
+      color: v.$lightBlue;
+      display: inline-block;
+      position: relative;
+      color: #0087ca;
+      a {
+        text-decoration: none;
+        color: v.$lightBlue;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 10px;
+        bottom: 0;
+        left: 0px;
+        top: 45px;
+
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+        box-shadow: 0px 10px 10px #0087ca;
+      }
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      .active {
+        color: rgba(255, 0, 0, 0.802);
+      }
+    }
+  }
+  .subNav {
+    position: relative;
+    cursor: pointer;
+    #subNavWhy ul,
+    #subNavRes ul {
+      position: absolute;
+      margin-top: 20px;
+
+      @include mix.display-flex(column, center, center);
+      @include mix.reset-list;
+      background-color: white;
+    }
+    #subNavWhy ul {
+      text-align: start;
+      a {
+        width: 250px;
+      }
+    }
+    #subNavRes ul {
+      text-align: center;
+      a {
+        width: 100px;
+      }
+    }
+    #subNavWhy ul a,
+    #subNavRes ul a {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.214);
+      padding: 20px;
+      font-size: 0.8rem;
+
+      &:hover {
+        background-color: v.$lightBlue;
+        color: v.$fontLinksWhite;
+      }
+    }
+  }
+}
+@media screen and (max-width: 831px) {
+  .secondNavContainer {
+    display: none;
+  }
+}

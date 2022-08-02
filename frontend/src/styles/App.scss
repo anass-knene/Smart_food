@@ -1,8 +1,12 @@
 @forward "firstNav";
+@forward "secondNav";
+@forward "mobileNav";
 @use "color-font-var" as v;
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  height: 100vh;
 }
