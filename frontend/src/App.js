@@ -5,7 +5,7 @@ import FirstNav from "./components/firstNav/FirstNav";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import SecondNav from "./components/secondNav/SecondNav";
-import Container from "./context/Container";
+
 import "animate.css";
 
 import "./styles/App.scss";
@@ -22,6 +22,7 @@ import Wholesale from "./components/Wholesale";
 import Basket from "./components/firstNav/Basket";
 import Profile from "./components/firstNav/Profile";
 import Login from "./components/firstNav/register/Login";
+import Signup from "./components/firstNav/register/Signup";
 
 function App() {
   const { isUserLogin } = useContext(MyContext);
@@ -37,6 +38,7 @@ function App() {
           element={isUserLogin ? <Profile /> : <Login />}
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/discover" element={<System />} />
