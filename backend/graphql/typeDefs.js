@@ -6,6 +6,10 @@ const typeDefs = gql`
     lastName: String!
     email: String!
     password: String!
+    tel_Number: String
+    city: String
+    address: String
+
     #     todoList: [TodoType]
   }
   type UserAuthType {

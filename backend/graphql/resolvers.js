@@ -22,6 +22,7 @@ const resolvers = {
     },
     async getVerify(_, __, { req }) {
       const token = req.headers["token"];
+
       if (token) {
         const decode = jwt.verify(token, "secret-key");
         if (decode) {

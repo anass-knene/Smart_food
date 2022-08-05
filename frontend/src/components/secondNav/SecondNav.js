@@ -7,14 +7,24 @@ import { FaRegUser } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 
 function SecondNav() {
-  // const [showNavWhy, setShowNavWhy] = useState(false);
-  // const [showNavRes, setShowNavRes] = useState(false);
-  const { showNavRes, setShowNavRes, showNavWhy, setShowNavWhy } =
-    useContext(MyContext);
+  const {
+    showNavRes,
+    setShowNavRes,
+    showNavWhy,
+    setShowNavWhy,
+    setIsUserLogin,
+    setUser,
+    isUserLogin,
+  } = useContext(MyContext);
   const [modalShow, setModalShow] = useState(false);
   const whyRef = useRef();
   const resRef = useRef();
 
+  function logoutUser() {
+    localStorage.removeItem("token");
+    setIsUserLogin(false);
+    setUser({});
+  }
   useEffect(() => {
     const closeDropdown = (e) => {
       if (
@@ -110,7 +120,13 @@ function SecondNav() {
 
           <ul className="FirstNavUlMobile">
             <li>
-              <Link to="/login">Login</Link>
+              {isUserLogin ? (
+                <Link onClick={logoutUser} to="/">
+                  Log Out
+                </Link>
+              ) : (
+                <Link to="/login">Login</Link>
+              )}
             </li>
             <li>
               <Link to="/profile">
